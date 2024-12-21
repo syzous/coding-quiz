@@ -28,47 +28,30 @@
 
 ### Backend
 
-Technology: Node.js with Express hosted on AWS EC2
+AWS S3
 
-    Purpose: Acts as the central server for handling application logic and orchestrating communication between components.
+    Purpose: Simple Storage Service for hosting and storing data.
 
     Role:
 
-    Handles user authentication and room management (e.g., creating and joining rooms).
+    Hosts the static ReactJS application files.
 
-    Facilitates quiz operations, such as distributing questions and collecting answers.
+    Stores application and infrastructure logs for debugging and monitoring.
 
-    Manages API endpoints for interacting with the DynamoDB database and user data.
+    Serves as a scalable and durable storage solution for application-related assets (e.g., images or quiz-related data).
 
-    Socket.io Integration: Manages real-time communication between users via WebSockets, ensuring quizzes operate synchronously across all participants in a room.
 
-Internet Gateways
+Cloudfront
 
-    Purpose: Enable VPC internet access using internet gateways
+    Purpose: Content Delivery Network (CDN) for global distribution.
 
-    Role: Allows communication between your VPC and the internet
+    Role:
 
-NAT Gateways:
+    Accelerates delivery of the ReactJS frontend by caching assets at edge locations closer to end-users.
 
-    Purpose: Enable EC2 using internet gateways
+    Reduces latency and improves load times for the application interface.
 
-    Role: Allow instances in a private subnet can connect to services outside your VPC but external services cannot initiate a connection with those instances
-
-Application Load Balancer
-
-    Purpose: Handle incoming traffic
-
-    Role: Distribute incoming traffic evenly across multiple backend servers, ensuring high availability and reliability of the application. This also helps in handling larger user loads efficiently
-
-Database
-
-    Technology: AWS DynamoDB
-
-    DynamoDB:
-
-    Purpose: A NoSQL database designed to handle unstructured and scalable data.
-
-    Role: Stores dynamic application data such as room details, active quizzes, and participant scores.
+    Secures data transmission by enabling HTTPS connections.
 
 
 AWS VPC (Virtual Private Cloud)
@@ -83,35 +66,56 @@ AWS VPC (Virtual Private Cloud)
 
     Facilitates secure communication between EC2 instances, databases, and other AWS services.
 
-Cloudfront
 
-    Purpose: Content Delivery Network (CDN) for global distribution.
+Internet Gateways
+
+    Purpose: Enable VPC internet access using internet gateways
+
+    Role: Allows communication between your VPC and the internet
+
+Application Load Balancer
+
+    Purpose: Handle incoming traffic
+
+    Role: Distribute incoming traffic evenly across multiple backend servers, ensuring high availability and reliability of the application. This also helps in handling larger user loads efficiently
+
+NAT Gateways:
+
+    Purpose: Enable EC2 using internet gateways
+
+    Role: Allow instances in a private subnet can connect to services outside your VPC but external services cannot initiate a connection with those instances
+
+
+Technology: Node.js with Express hosted on AWS EC2
+
+    Purpose: Acts as the central server for handling application logic and orchestrating communication between components.
 
     Role:
 
-    Accelerates delivery of the ReactJS frontend by caching assets at edge locations closer to end-users.
+    Handles user authentication and room management (e.g., creating and joining rooms).
 
-    Reduces latency and improves load times for the application interface.
+    Facilitates quiz operations, such as distributing questions and collecting answers.
 
-    Secures data transmission by enabling HTTPS connections.
+    Manages API endpoints for interacting with the DynamoDB database and user data.
 
-AWS S3
+    Socket.io Integration: Manages real-time communication between users via WebSockets, ensuring quizzes operate synchronously across all participants in a room.
 
-    Purpose: Simple Storage Service for hosting and storing data.
 
-    Role:
+Database
 
-    Hosts the static ReactJS application files.
+    Technology: AWS DynamoDB
 
-    Stores application and infrastructure logs for debugging and monitoring.
+    DynamoDB:
 
-    Serves as a scalable and durable storage solution for application-related assets (e.g., images or quiz-related data).
+    Purpose: A NoSQL database designed to handle unstructured and scalable data.
+
+    Role: Stores dynamic application data such as room details, active quizzes, and participant scores.
 
 CloudWatch
 
-Purpose: Centralized monitoring and logging solution.
+    Purpose: Centralized monitoring and logging solution.
 
-Role:
+    Role:
 
     Collects and monitors logs from EC2, DynamoDB, and S3.
 
@@ -119,7 +123,7 @@ Role:
 
     Alerts the development and operations team to anomalies or infrastructure issues.
 
-    Socket.io
+Socket.io
 
     Purpose: Enables real-time communication between users and the backend.
 
