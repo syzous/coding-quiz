@@ -1,4 +1,3 @@
-import React from "react";
 import "./App.css";
 import { NavBar } from "./compontents/NavBar";
 import { BrowserRouter, Route, Routes } from "react-router";
@@ -8,16 +7,14 @@ import { RoomPage } from "./pages/RoomPage";
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <NavBar />
-        <Routes>
-          <Route index element={<HomePage />} />
-          <Route path="/leaderboard" element={<LeaderBoardPage />} />
-          <Route path="/room/:roomId" element={<RoomPage />} />
-        </Routes>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <NavBar />
+      <Routes>
+        <Route index element={<HomePage />} />
+        <Route path="/leaderboard" element={<LeaderBoardPage />} />
+        <Route path="/room/:roomId" element={<RoomPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
