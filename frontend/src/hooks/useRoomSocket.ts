@@ -1,6 +1,6 @@
 import { socket } from "../socket";
 import { useCallback, useEffect, useState } from "react";
-import { TQuestion, TRoomInfo } from "../types/room";
+import { TQuestion, TRoomInfo } from "../types/roomType";
 import { useCountDown } from "../hooks/useCountdown";
 
 export const useRoomSocket = (roomId: string, userName: string) => {

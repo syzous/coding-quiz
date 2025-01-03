@@ -1,5 +1,5 @@
 import { Box, Button } from "@mui/material";
-import { TQuestion } from "../types/room";
+import { TQuestion } from "../types/roomType";
 
 export const Question = ({
   question,

@@ -2,7 +2,7 @@ import { Box, Button } from "@mui/material";
 import { useEffect, useCallback } from "react";
 import { useParams, useNavigate } from "react-router";
 import { socket } from "../socket";
-import { ERoomStatus } from "../types/room";
+import { ERoomStatus } from "../types/roomType";
 import { Question } from "../compontents/Question";
 import { useRoomSocket } from "../hooks/useRoomSocket";
 import { BarChart } from "@mui/x-charts";
