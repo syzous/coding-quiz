@@ -8,11 +8,12 @@ import { RoomPage } from "./pages/RoomPage";
 function App() {
   return (
     <BrowserRouter>
-      <NavBar />
       <Routes>
-        <Route index element={<HomePage />} />
-        <Route path="/leaderboard" element={<LeaderBoardPage />} />
-        <Route path="/room/:roomId" element={<RoomPage />} />
+        <Route element={<NavBar />}>
+          <Route index element={<HomePage />} />
+          <Route path="/leaderboard" element={<LeaderBoardPage />} />
+          <Route path="/room/:roomId" element={<RoomPage />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
